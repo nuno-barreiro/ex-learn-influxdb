@@ -1,0 +1,19 @@
+services:
+  influxdb:
+    container_name: influxdb
+    # More info: https://hub.docker.com/_/influxdb
+    # Full tag list: https://hub.docker.com/r/library/influxdb/tags/
+    image: influxdb:latest
+    ports:
+      # The API for InfluxDB is served on port 8086
+      - "8086:8086"
+    environment:
+      # These only get used the first time the container is run locally
+      # https://github.com/docker-library/docs/blob/master/influxdb/README.md#automated-setup
+      DOCKER_INFLUXDB_INIT_MODE: "setup"
+      DOCKER_INFLUXDB_INIT_USERNAME: "student"
+      DOCKER_INFLUXDB_INIT_PASSWORD: "Passw0rd123$"
+      DOCKER_INFLUXDB_INIT_ORG: "learn-influx"
+      DOCKER_INFLUXDB_INIT_BUCKET: "events_dev"
+      DOCKER_INFLUXDB_INIT_RETENTION: "1w"
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: "local-dev-token"
