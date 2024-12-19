@@ -1,21 +1,15 @@
-# ExLearnInfluxdb
+# Learn InfluxDB using Elixir
 
-**TODO: Add description**
+## Dependencies
+- [Instream](https://hex.pm/packages/instream): InfluxDB driver for Elixir
 
-## Installation
+## Concepts 
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ex_learn_influxdb` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:ex_learn_influxdb, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/ex_learn_influxdb>.
+- All InfluxDB data is stored in a **Bucket**, which combines the concept of a database and a retention period that sets the duration of time each data point is persisted.
+- A **Measurement** is a group of data at a high level, which can almost be compared to a table in ER terms. 
+- Data can also be grouped at a low lever using **Tag sets**, which are sets of key-value pairs (values are strings).
+- Representation of data is a **Field set**, also a set of key-value pairs but in fields values are numerical and strings.
+- **Timestamps** of data is based in Unix time and stored in UTC with nanosecond precision.
+- **Series** are unique combinations of measure and tags.
+- Data points are written in InfluxDB using [Line Protocol](https://docs.influxdata.com/influxdb/cloud/reference/syntax/line-protocol/)
 
